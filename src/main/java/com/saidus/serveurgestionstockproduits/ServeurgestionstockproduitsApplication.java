@@ -1,13 +1,13 @@
-package com.saidus.serveursestionstockproduits;
+package com.saidus.serveurgestionstockproduits;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServeursestionstockproduitsApplication {
+public class ServeurgestionstockproduitsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServeursestionstockproduitsApplication.class, args);
+        SpringApplication.run(ServeurgestionstockproduitsApplication.class, args);
     }
 
 }
