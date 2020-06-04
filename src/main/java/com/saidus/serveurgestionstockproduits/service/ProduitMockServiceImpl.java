@@ -1,6 +1,6 @@
 package com.saidus.serveurgestionstockproduits.service;
 
-import com.saidus.serveurgestionstockproduits.entities.Produit;
+import com.saidus.serveurgestionstockproduits.entity.Produit;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -35,9 +35,9 @@ public class ProduitMockServiceImpl implements IProduitService {
     }
 
     @Override
-    public void deleteProduit(String ref) {
+    public void deleteProduit(Long id) {
         Produit produit= new Produit();
-        produit.setRef(ref);
+        produit.setId(id);
         produits.remove(produit);
     }
 }

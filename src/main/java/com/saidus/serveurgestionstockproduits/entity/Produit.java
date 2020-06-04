@@ -1,7 +1,16 @@
-package com.saidus.serveurgestionstockproduits.entities;
+package com.saidus.serveurgestionstockproduits.entity;
 
-//@Entity
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Produit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String ref;
     private int quantite;
     private float prixUnitaire;
@@ -14,6 +23,14 @@ public class Produit {
         this.ref = ref;
         this.quantite = quantite;
         this.prixUnitaire = prixUnitaire;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getRef() {
@@ -41,17 +58,27 @@ public class Produit {
     }
 
     @Override
+    public String toString() {
+        return "Produit{" +
+                "id=" + id +
+                ", ref='" + ref + '\'' +
+                ", quantite=" + quantite +
+                ", prixUnitaire=" + prixUnitaire +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Produit produit = (Produit) o;
 
-        return ref.equals(produit.ref);
+        return id.equals(produit.id);
     }
 
     @Override
     public int hashCode() {
-        return ref.hashCode();
+        return id.hashCode();
     }
 }

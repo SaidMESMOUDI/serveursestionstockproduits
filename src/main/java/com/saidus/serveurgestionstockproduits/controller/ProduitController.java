@@ -1,6 +1,6 @@
 package com.saidus.serveurgestionstockproduits.controller;
 
-import com.saidus.serveurgestionstockproduits.entities.Produit;
+import com.saidus.serveurgestionstockproduits.entity.Produit;
 import com.saidus.serveurgestionstockproduits.service.IProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +29,8 @@ public class ProduitController {
         produitService.updateProduit(produit);
     }
 
-    @DeleteMapping("/{ref}")
-    public void deleteProduit(@PathVariable("ref") String ref){
-        produitService.deleteProduit(ref);
+    @DeleteMapping("/{id}")
+    public void deleteProduit(@PathVariable("id") Long id){
+        produitService.deleteProduit(id);
     }
 }
