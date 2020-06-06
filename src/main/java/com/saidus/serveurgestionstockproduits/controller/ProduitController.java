@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/produit")
-@CrossOrigin
+//@CrossOrigin
 public class ProduitController {
-    @Autowired
+    //@Autowired
     private IProduitService produitService;
+
+    public ProduitController(IProduitService produitService) {
+        this.produitService = produitService;
+    }
 
     @GetMapping
     public List<Produit> getProduits() {
