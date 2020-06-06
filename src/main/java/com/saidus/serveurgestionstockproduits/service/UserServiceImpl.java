@@ -1,16 +1,15 @@
 package com.saidus.serveurgestionstockproduits.service;
 
-import java.util.List;
-
 import com.saidus.serveurgestionstockproduits.entity.User;
 import com.saidus.serveurgestionstockproduits.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Primary
-public class UserServiceImpl implements ICrudService<User, Long>{
+public class UserServiceImpl implements ICrudService<User, Long> {
 
     //@Autowired
     private UserRepository userRepository;

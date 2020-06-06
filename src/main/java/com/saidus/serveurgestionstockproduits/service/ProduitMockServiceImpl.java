@@ -36,7 +36,7 @@ public class ProduitMockServiceImpl implements IProduitService {
 
     @Override
     public void deleteProduit(Long id) {
-        Produit produit= new Produit();
+        Produit produit = new Produit();
         produit.setId(id);
         produits.remove(produit);
     }

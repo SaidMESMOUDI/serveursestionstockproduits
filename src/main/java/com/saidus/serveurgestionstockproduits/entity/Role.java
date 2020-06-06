@@ -2,26 +2,20 @@ package com.saidus.serveurgestionstockproduits.entity;
 
 import com.saidus.serveurgestionstockproduits.util.RoleEnum;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 @Entity
 public class Role {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="ROLE_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ROLE_ID")
     private Long id;
 
     private String name;
 
     public Role() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     public Role(RoleEnum role) {
