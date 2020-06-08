@@ -1,7 +1,8 @@
-package com.saidus.serveurgestionstockproduits.service;
+package com.saidus.serveurgestionstockproduits.service.impl;
 
 import com.saidus.serveurgestionstockproduits.entity.User;
-import com.saidus.serveurgestionstockproduits.repository.UserRepository;
+import com.saidus.serveurgestionstockproduits.repository.IUserRepository;
+import com.saidus.serveurgestionstockproduits.service.ICrudService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,9 @@ import java.util.List;
 public class UserServiceImpl implements ICrudService<User, Long> {
 
     //@Autowired
-    private UserRepository userRepository;
+    private IUserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -35,9 +36,10 @@ public class UserServiceImpl implements ICrudService<User, Long> {
 
     @Override
     public void delete(Long id) {
-        User user = new User();
+        /*User user = new User();
         user.setId(id);
-        userRepository.delete(user);
+        userRepository.delete(user);*/
+        userRepository.deleteById(id);
     }
 
     @Override

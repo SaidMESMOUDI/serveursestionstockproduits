@@ -2,8 +2,7 @@ package com.saidus.serveurgestionstockproduits.security;
 
 import com.saidus.serveurgestionstockproduits.entity.Role;
 import com.saidus.serveurgestionstockproduits.entity.User;
-import com.saidus.serveurgestionstockproduits.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.saidus.serveurgestionstockproduits.repository.IUserRepository;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,16 +18,16 @@ import java.util.List;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
     //@Autowired
-    private UserRepository userRepository;
+    private IUserRepository IUserRepository;
 
-    public CustomUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public CustomUserDetailsService(IUserRepository IUserRepository) {
+        this.IUserRepository = IUserRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //this.userRepository.findByUsername(username);
-        User user = this.userRepository.findByUsername(username);
+        User user = this.IUserRepository.findByUsername(username);
 
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;

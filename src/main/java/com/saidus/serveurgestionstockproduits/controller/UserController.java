@@ -8,11 +8,13 @@ import java.security.Principal;
 
 // @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api")  // @RequestMapping("/api/user")
 public class UserController {
 
+    // @RequestMapping("/api/user")
     @GetMapping("/user")
     public Principal user(Principal user) {
         return user;
     }
+
 }

@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Produit {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +15,10 @@ public class Produit {
     private int quantite;
     private float prixUnitaire;
 
-    public Produit() {
+    public Product() {
     }
 
-    public Produit(String ref, int quantite, float prixUnitaire) {
+    public Product(String ref, int quantite, float prixUnitaire) {
         super();
         this.ref = ref;
         this.quantite = quantite;
@@ -59,7 +59,7 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{" +
+        return "Product{" +
                 "id=" + id +
                 ", ref='" + ref + '\'' +
                 ", quantite=" + quantite +
@@ -72,9 +72,9 @@ public class Produit {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Produit produit = (Produit) o;
+        Product product = (Product) o;
 
-        return id.equals(produit.id);
+        return id.equals(product.id);
     }
 
     @Override
