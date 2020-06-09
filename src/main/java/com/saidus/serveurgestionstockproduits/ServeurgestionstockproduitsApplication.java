@@ -18,6 +18,7 @@ public class ServeurgestionstockproduitsApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(ServeurgestionstockproduitsApplication.class, args);
+
     /*
         IProductRepository productRepository = ctx.getBean(IProductRepository.class);
         productRepository.save(new Product("Livre", 50, 20.75f));
@@ -43,6 +44,7 @@ public class ServeurgestionstockproduitsApplication {
         admin.setRoles(Arrays.asList(roleUser, roleAdmin));
         userRepository.save(admin);
     */
+
     }
 
 
