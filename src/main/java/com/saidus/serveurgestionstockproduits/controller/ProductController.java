@@ -8,7 +8,7 @@ import java.util.List;
 
 //@CrossOrigin
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping(value = "/api/product")
 public class ProductController {
     //@Autowired
     private ICrudService<Product, Long> productService;

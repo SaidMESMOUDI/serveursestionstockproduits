@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/crud_user")
+@RequestMapping(value = "/crud_user")
 public class CrudUserController {
     //@Autowired
     private ICrudService<User, Long> userService;

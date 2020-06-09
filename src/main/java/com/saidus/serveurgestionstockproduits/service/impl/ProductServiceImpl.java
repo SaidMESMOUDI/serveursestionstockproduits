@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ICrudService<Product, Long> {
     @Override
     public void delete(Long id) {
         /*
-        Produit produit = new Produit();
+        Product produit = new Product();
         produit.setId(id);
         this.productRepository.delete(produit);
         */
