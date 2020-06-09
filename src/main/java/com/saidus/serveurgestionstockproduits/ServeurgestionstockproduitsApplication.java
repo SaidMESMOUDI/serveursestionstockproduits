@@ -1,5 +1,4 @@
 package com.saidus.serveurgestionstockproduits;
-
 import com.saidus.serveurgestionstockproduits.entity.Product;
 import com.saidus.serveurgestionstockproduits.entity.Role;
 import com.saidus.serveurgestionstockproduits.entity.User;
@@ -7,6 +6,7 @@ import com.saidus.serveurgestionstockproduits.repository.IProductRepository;
 import com.saidus.serveurgestionstockproduits.repository.IRoleRepository;
 import com.saidus.serveurgestionstockproduits.repository.IUserRepository;
 import com.saidus.serveurgestionstockproduits.util.RoleEnum;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,8 +18,9 @@ public class ServeurgestionstockproduitsApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(ServeurgestionstockproduitsApplication.class, args);
-/*
-       IProductRepository productRepository = ctx.getBean(IProductRepository.class);
+
+    /*
+        IProductRepository productRepository = ctx.getBean(IProductRepository.class);
         productRepository.save(new Product("Livre", 50, 20.75f));
         productRepository.save(new Product("Cahier", 27, 18.25f));
         productRepository.save(new Product("Stylo", 52, 12.3f));
@@ -42,8 +43,8 @@ public class ServeurgestionstockproduitsApplication {
         User admin = new User("admin", "adminpass", true);
         admin.setRoles(Arrays.asList(roleUser, roleAdmin));
         userRepository.save(admin);
+    */
 
- */
     }
 
 
