@@ -1,38 +1,40 @@
 package com.saidus.serveurgestionstockproduits.controller;
 
+import com.saidus.serveurgestionstockproduits.entity.Role;
 import com.saidus.serveurgestionstockproduits.entity.User;
-import com.saidus.serveurgestionstockproduits.service.ICrudService;
-import org.springframework.web.bind.annotation.*;
+import com.saidus.serveurgestionstockproduits.repository.IRoleRepository;
+import com.saidus.serveurgestionstockproduits.repository.IUserRepository;
+import com.saidus.serveurgestionstockproduits.util.RoleEnum;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/crud_user")
-public class CrudUserController {
-    //@Autowired
-    private ICrudService<User, Long> userService;
+public class CrudUserController extends CrudController<User, Long> {
 
-    public CrudUserController(ICrudService<User, Long> userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    private IRoleRepository roleRepository;
 
-    @GetMapping
+    @Autowired
+    private IUserRepository userRepository;
+
     public List<User> getAll() {
-        return userService.getAll();
+        List<User> users = super.getAll();
+        users.forEach(user -> user.setPassword(null));
+        return users;
     }
 
-    @PostMapping
     public void add(@RequestBody User user) {
-        userService.add(user);
+        Role roleUser = this.roleRepository.findByName(RoleEnum.ROLE_USER.getName());
+        user.setEnable(true);
+        user.setRoles(Arrays.asList(roleUser));
+        super.add(user);
     }
 
-    @PutMapping
-    public void update(@RequestBody User user) {
-        userService.update(user);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) {
-        userService.delete(id);
-    }
 }

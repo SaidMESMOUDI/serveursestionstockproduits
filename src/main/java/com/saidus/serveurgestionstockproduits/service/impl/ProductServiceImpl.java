@@ -4,7 +4,10 @@ package com.saidus.serveurgestionstockproduits.service.impl;
 import com.saidus.serveurgestionstockproduits.entity.Product;
 import com.saidus.serveurgestionstockproduits.repository.IProductRepository;
 import com.saidus.serveurgestionstockproduits.service.ICrudService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +16,8 @@ import java.util.List;
 @Primary
 public class ProductServiceImpl implements ICrudService<Product, Long> {
 
+    @Autowired
     private IProductRepository productRepository;
-
-    public ProductServiceImpl(IProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     @Override
     public List<Product> getAll() {
@@ -47,6 +47,10 @@ public class ProductServiceImpl implements ICrudService<Product, Long> {
     @Override
     public void saveAll(Iterable<Product> iterable) {
         this.productRepository.saveAll(iterable);
+        /*Iterator<Product> iterator = iterable.iterator();
+        if(iterator.hasNext()) {
+            this.productRepository.save(iterator.next());
+        }*/
     }
 
 
